@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block contenido %}
+<h1 class="text-center mb-4">Lista de Usuarios</h1>
+<!-- Botón para agregar nuevo usuario -->
+<div class="mb-3">
+    <a href="{% url 'usuariosadd' %}" class="btn btn-success">Agregar Nuevo Usuario</a>
+</div>
+<!-- Tabla de usuarios -->
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Password</th>
+            <th>Fecha creación</th>
+            <th>Fecha actualización</th>
+            <th>Id Rol</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if usuarios %}
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td>{{ usuario.password }}</td>
+                    <td>{{ usuario.fecha_creacion }}</td>
+                    <td>{{ usuario.fecha_actualizacion }}</td>
+                    <td>{{ usuario.id_rol }}</td>
+                    <td>{{ usuario.estado }}</td>
+
+                    <td>
+                        <!-- Botón para editar -->
+                        <a href="{% url 'usuariosedit' usuario.id %}">Editar</a>
+                        <!-- Botón para eliminar -->
+                        <a href="{% url 'usuariosdel' usuario.id %}">Eliminar</a>
+                </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="9" class="text-center">No hay usuarios registrados.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

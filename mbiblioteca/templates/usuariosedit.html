@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block contenido %}
+<h1 class="text-center mb-4">Editar Usuario</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a href="{% url 'usuarios' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+{% endblock %}
