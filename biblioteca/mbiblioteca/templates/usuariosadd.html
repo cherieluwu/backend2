@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block contenido %}
+<h1 class="text-center mb-4">Agregar/Actualizar Usuario</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

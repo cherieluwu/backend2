@@ -1,0 +1,13 @@
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.button-link:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+}

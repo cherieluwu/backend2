@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block contenido %}
+<h1 class="text-center mb-4">Lista de editoriales</h1>
+<!-- Botón para agregar nueva editorial -->
+<div class="mb-3">
+    <a href="{% url 'editorialesadd' %}" class="btn btn-success">Agregar Nueva Editorial</a>
+</div>
+<!-- Tabla de editoriales -->
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th> <!-- Added a header for actions -->
+        </tr>
+    </thead>
+    <tbody>
+        {% if editoriales %}
+            {% for editorial in editoriales %}
+                <tr>
+                    <td>{{ editorial.id }}</td>
+                    <td>{{ editorial.nombre }}</td>
+                    <td>{{ editorial.estado }}</td>
+
+                    <td>
+                        <!-- Botón para editar -->
+                        <a href="{% url 'editorialesupdate' editorial.id %}">Editar</a> |
+                        <!-- Botón para eliminar -->
+                        <a href="{% url 'editorialesdel' editorial.id %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4" class="text-center">No hay editoriales registrados.</td> <!-- Adjusted colspan to match table structure -->
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

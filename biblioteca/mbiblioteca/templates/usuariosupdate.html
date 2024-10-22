@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1 class="text-center mb-4">Actualizar Usuario</h1>
+<form method="post" action="{% url 'usuariosupdate' usuario.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block contenido %}
+<div class="row">
+<div class="col-10 offset-1">
+<h3>Confirmar Eliminación de Libro</h3>
+<div class="alert alert-danger h5">
+¿Estás seguro de que deseas eliminar el libro?
+{{ libros.id }} {{ libros.titulo }}
+</div>
+<form method="post">
+{% csrf_token %}
+<div class="row">
+<div class="col">
+<a class="btn btn-dark" href="{% url 'libros' %}">Cancelar</a>
+</div>
+<div class="col">
+<button class="btn btn-danger" type="submit">Confirmar Eliminación</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

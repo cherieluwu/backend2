@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <footer>
+        <a href="{% url 'libros' %}">Ver lista de libros</a>
+    </footer>
+{% endblock %}
